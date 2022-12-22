@@ -1,0 +1,7 @@
+.displayflex-hulled {
+    display: flex;
+    align-items: center;
+}
+.hulled-input-admin-search::placeholder{
+    color: #999a9b;
+}
