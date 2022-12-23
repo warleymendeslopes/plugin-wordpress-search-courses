@@ -21,9 +21,15 @@
  * @return void
  */
 function hulled_init_plugin_search(){
+    $config_json = hulled_search_return_config();
     if (version_compare(phpversion(), SEARCHPHPVERSION, '>=')) {    
-        include_once plugin_dir_path( __FILE__ ) . 'class-search-template-loader.php';  
-        require_once plugin_dir_path( __FILE__ ) . 'api/piaget_services.php';
+        if( $config_json->ID == true) {
+            include_once plugin_dir_path( __FILE__ ) . 'class-search-template-loader.php';  
+            require_once plugin_dir_path( __FILE__ ) . 'api/piaget_services.php';
+        }else{
+            add_action( 'admin_notices', 'lytex_check_config_plugin' );
+        }
+
     }else{
         add_action( 'admin_notices', 'lytex_check_version_php' );
     }
@@ -37,7 +43,12 @@ function hulled_init_plugin_search(){
  * @return void
  */
 function lytex_check_version_php() {
-    echo '<div class="notice notice-error is-dismissible"><p>' . sprintf( __( 'The minimum PHP version compatible with Lytex Pagamentos plugin is '.SEARCHPHPVERSION.'. Please, update your PHP version', 'Hulled-plugins-search' )) . '</p></div>';
+    echo '<div class="notice notice-error is-dismissible"><p>' . sprintf( __( 'The minimum PHP version compatible with Lytex Pagamentos plugin is '.SEARCHPHPVERSION.'. Please, update your PHP version.', 'Hulled-plugins-search' )) . '</p></div>';
+}
+
+
+function lytex_check_config_plugin(){
+    echo '<div class="notice notice-error is-dismissible"><p>' . sprintf( __( 'It seems that the plugin Search is not configured yet, for it to work correctly you need to enter your API credentials.', 'Hulled-plugins-search' )) . '</p></div>';
 }
 
 
@@ -149,6 +160,17 @@ function hulled_search_list_course_per_area(){
 add_action('wp_ajax_hulled_search_list_course_per_area', 'hulled_search_list_course_per_area');
 add_action('wp_ajax_nopriv_hulled_search_list_course_per_area', 'hulled_search_list_course_per_area');
 
+
+/**
+ * Retorna as certificadores para listagem de cursos
+ * 
+ * Undocumented function
+ *
+ * @return void
+ */
+function get_active_certifiers(){
+    return 'Faculdade ÚNICA|Faculdade Prominas';
+}
 
 
 
