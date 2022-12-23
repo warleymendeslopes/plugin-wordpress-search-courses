@@ -33,5 +33,14 @@ class PiagetService {
         ];
     }
 
+    function get_courses($types,$area,$limit,$page,$sort){
+            $result = $this->_api_service->get($this->filter_url, '/v2/courses/' . $types,
+                ['area' => $area, 'limit' => $limit,'page' => $page, 'sort' => $sort, 'certifiers' => get_active_certifiers()]);
+        return (object) [
+            'data'     => $result->data,
+            'metadata' => $result->metadata
+        ];
+    }
+
 
 }
