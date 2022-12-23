@@ -174,14 +174,8 @@ function get_active_certifiers(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+function ppr($data){
+    echo "<pre>";
+        print_r($data);
+    echo "</pre>";
+}

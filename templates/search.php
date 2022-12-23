@@ -153,11 +153,12 @@
         <button type="submit"><i class="fa fa-search"></i></button>
       </form>
         <div class="hulled-response-areas">
-          <h4 class="title-seach-area"> EXPLORE NOSSAS ÁREAS </h4>
+          
           <div class="search-content-list-courses">
 
 
             <div class="remove_content-areas">
+            <h4 class="title-seach-area"> EXPLORE NOSSAS ÁREAS </h4>
               <?php  
                 //print_r($data->areas->data);
                 foreach ($data->areas->data as $key => $value) { ?>
