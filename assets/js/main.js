@@ -19,7 +19,7 @@
                         area: testtee
                     },
                     success: function (data) {
-                        console.log(data);
+                        console.log("Ajax foi execuldado.");
                         $hulled('.remove_content-areas').remove();
                         $hulled('.search-content-list-courses').append(data);
                    }
