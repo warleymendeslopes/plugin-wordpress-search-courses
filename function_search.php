@@ -3,11 +3,11 @@
 /**
  * running all the necessary cdns for the plugin to work correctly
  */
-   // wp_enqueue_script('hulled_jquery_search', 'https://code.jquery.com/jquery-3.6.0.slim.min.js');
+
     wp_enqueue_style('hulled_modal_search', plugins_url('assets/hulled_modal_search.css', __FILE__));
 
 
-    wp_enqueue_script('jquery', 'https://code.jquery.com/jquery-3.6.0.slim.min.js','','',false);
+    wp_enqueue_script('jquery-hulled-plugin-search', 'https://code.jquery.com/jquery-3.6.0.slim.min.js','','',false);
     wp_enqueue_script('popper_ajax_search', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js','','',false);
 
     wp_enqueue_script('main_js_search', plugins_url('assets/js/main.js', __FILE__), '','', true);
@@ -21,7 +21,7 @@
 
     
 /**
- * Funcao valida os requisitos para que o plugin funcione corretamente
+ * Function validates the requirements for the plugin to work correctly
  * 
  * Undocumented function
  *
@@ -43,7 +43,7 @@ function hulled_init_plugin_search(){
 }
     
 /**
- * Funcao exibe o erro de versao do PHP
+ * Function displays PHP version error
  * 
  * Undocumented function
  *
@@ -130,8 +130,8 @@ add_action( 'init', 'hulled_create_local_database_search' );
 
 
 /**
- * retorna todos os dados de configuracao feitos no painel
- * do plugin
+ * returns all configuration data made in the panel
+ * from plugin
  *
  * @return mixed
  */
@@ -145,8 +145,8 @@ function hulled_search_return_config(){
 
 
 /**
- * usando o AJAX para listar os cursos de determinadas areas,
- * chamando  o template especifico e passando as informacoes vinda da api
+ * using AJAX to list courses in certain areas, 
+ * calling the specific template and passing the information from the api
  * Undocumented function
  *
  * @return void
@@ -169,7 +169,7 @@ add_action('wp_ajax_nopriv_hulled_search_list_course_per_area', 'hulled_search_l
 
 
 /**
- * Retorna as certificadores para listagem de cursos
+ * Returns certifiers for course listing
  * 
  * Undocumented function
  *
