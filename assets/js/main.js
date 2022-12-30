@@ -8,7 +8,7 @@
         function search_h_area(){
             $hulled('.list-courses-per-area').click(function (){
                 var testtee = $hulled(this).attr('data-area')
-                var loader = "<div class='hulled-lader' style='position: absolute; z-index: 99999999999;'><img src='https://prominas.online/wp-content/uploads/2022/12/loader.gif' style='width: 54px;'></div>";
+                var loader = "<div class='hulled-lader' style='position: absolute; z-index: 99999999999; top: 0px;'><img src='https://prominas.online/wp-content/uploads/2022/12/loader.gif' style='width: 65px;'></div>";
                 $hulled(this).append(loader);
                 console.log(testtee)
                 $hulled.ajax({

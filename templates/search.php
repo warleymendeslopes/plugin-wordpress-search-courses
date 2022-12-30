@@ -95,6 +95,7 @@
         border-bottom: 1px solid #ededed;
         margin: 0px 16px;
         cursor: pointer;
+        position: relative;
     }
     ._jro6t0 {
         display: flex;
