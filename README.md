@@ -4,4 +4,4 @@ instale o plugin em seu site *wordpress*, em seguida sera disponibilizado um nov
 - Nome 
 - Telefone 
 - Chave de API
-- E-mail 
+- E-mail "# eee" 

@@ -13,6 +13,13 @@
     wp_enqueue_script('main_js_search', plugins_url('assets/js/main.js', __FILE__), '','', true);
 
 
+
+
+
+
+
+
+    
 /**
  * Funcao valida os requisitos para que o plugin funcione corretamente
  * 

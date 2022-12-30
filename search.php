@@ -33,6 +33,6 @@ define( 'FILESEARCHPLUGIN', dirname( __FILE__ ));
 
 require_once plugin_dir_path( __FILE__ ) . 'function_search.php';
 
-
+//echo plugin_dir_path( __FILE__ ) . 'assets./img/loader.gif';
 add_action( 'plugins_loaded', 'hulled_init_plugin_search', 'get_instance');
 

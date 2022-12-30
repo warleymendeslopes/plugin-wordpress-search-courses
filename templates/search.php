@@ -7,19 +7,20 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
+<style>
 
 
 
-  <style>
+
     .trigger {
-      background-color: #007afa;
-      border: none;
-      padding: 15px;
-      cursor: pointer;
-      color: #fff;
-      border-radius: 7px;
-    }
+		background-color: #007afa00;
+		border: 1px solid #46485f;
+		padding: 5px 20px 5px 20px;
+		cursor: pointer;
+		color: #46485f;
+		border-radius: 7px;
+	}
+    
 
     .modal {
       width: 100%;
@@ -28,7 +29,7 @@
       position: fixed;
       top: 0;
       left: 0;
-      z-index: 1;
+      z-index: 10;
       background-color: rgb(255 255 255);
       overflow: auto;
     }
@@ -38,6 +39,7 @@
       width: 80%;
       text-align: center;
       margin: 30px auto 0;
+	  border: none;
     }
 
     .modal-content p {
@@ -82,11 +84,17 @@
       position: relative;
       top: 88px;
     }
+	  @media (min-width: 768px){
+		.modal-content {
+			box-shadow: 0 5px 15px rgb(0 0 0 / 0%);
+		}
+	  }
 
     #pesqui {
         padding: 1em 0px;
         border-bottom: 1px solid #ededed;
         margin: 0px 16px;
+        cursor: pointer;
     }
     ._jro6t0 {
         display: flex;
@@ -139,6 +147,26 @@
       padding: 10px 10px 10px 20px;
     }
   </style>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <!-- modal -->
   <div class="modal" id="search-modal">
     <!-- trigger untuk menutup modal -->
@@ -147,11 +175,19 @@
 
     <!-- isi modal -->
     <div class="modal-content">
-      <p>Pencarian</p>
+      <p>Cursos de Pós-Graduação</p>
       <form action="#" class="hulled-search-form-courses">
-        <input type="text" placeholder="Pesquisar">
-        <button type="submit"><i class="fa fa-search"></i></button>
+        <input class="search-input" id="coursesearch" type="text" placeholder="Ex: Engenharia de Segurança do Trabalho"><button><i class="fa fa-search search-button"></i></button>
       </form>
+
+
+          <div class="wpb_text_column wpb_content_element">
+            <div class="wpb_wrapper">
+              <ul id="course_list" class="d-none"></ul>
+            </div>
+          </div>
+
+
         <div class="hulled-response-areas">
           
           <div class="search-content-list-courses">
@@ -163,6 +199,7 @@
                 //print_r($data->areas->data);
                 foreach ($data->areas->data as $key => $value) { ?>
                   <div role="link" tabindex="0" id="pesqui" data-index="3" data-area="<?php echo $value->areaAlias ?>" class="_1jbb9y7 list-courses-per-area">
+                  
                     <div class="_jro6t0">
                       <div class="_1i6wphy"> <img class="_w6ax09" alt="" src="<?php echo $value->miniature ?>"></div>
                       <div class="_1825a1k">
