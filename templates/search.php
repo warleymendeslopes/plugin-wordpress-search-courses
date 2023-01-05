@@ -147,6 +147,12 @@
       text-align: left;
       padding: 10px 10px 10px 20px;
     }
+    .wpb_text_column.wpb_content_element {
+    position: inherit;
+    background: rebeccapurple;
+    top: 59px;
+    text-align: left;
+}
   </style>
 <body>
 
