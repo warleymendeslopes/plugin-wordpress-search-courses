@@ -66,16 +66,22 @@ jQuery(function ($hulled) {
         });
         function hinter(event, type_url, area_input) {
             var course_name = event.target.value;
-            var min_characters = 3;
+            var min_characters = 2;
             if (course_name.length >= min_characters) {
                 course_list.innerHTML = "";
                 window.hinterXHR.abort();
                 window.hinterXHR.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
+                        
                         var response = JSON.parse(this.responseText);
                         console.log(response);
+                        if(response.data.length  === 0){
+                            $hulled(".hulled-course-not-faund").css("display", "block")
+                        }else{
+                            $hulled(".hulled-course-not-faund").css("display", "none")
+                        }
                         response.data.forEach(function (course) {
-                            console.log(course);
+                          //  console.log(course);
                             var item = document.createElement("li");
                             var link = document.createElement("a");
                             item.innerHTML = course.name;
@@ -107,12 +113,12 @@ jQuery(function ($hulled) {
                                 area_url = '/';
                             }
                             link.href = "/" + convert_type_url[course.type] + area_url + course.alias;
-                            console.log(link.href + "link aui");
+                            //console.log(link.href + "link aui");
 
 
                             item.onclick = function () {
                                 clicked_item = true;
-                                console.log(course.area);
+                               // console.log(course.area);
 
                                 console.log(area);
                                 var form = document.querySelector('*[id^="coursesearch"]');
@@ -120,17 +126,16 @@ jQuery(function ($hulled) {
                                 const field = document.querySelector('#coursesearch');
                                 console.log(name_input);
                                 field.addEventListener('input', () => {
-                                    console.log(field.value);
+                                  //  console.log(field.value);
                                 });
                                 name_input.value = course.alias;
                                 console.log(name_input.value);
                                 clicked_item = false;
+                                
                             };
                             link.appendChild(item);
                             course_list.appendChild(link);
                         });
-                    } else {
-                        console.log("nao achoei")
                     }
                 };
                 var url = api_url + '/' + typ_url + '?' + area_input + '&search=' + course_name + '&certifiers=Faculdade%20%C3%9ANICA|Faculdade%20Prominas'

@@ -78,6 +78,11 @@
     form.hulled-search-form-courses {
       position: absolute;
       width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .hulled-course-not-faund{
+      display:none;
     }
 
     .hulled-response-areas {
@@ -178,13 +183,17 @@
   <div class="modal" id="search-modal">
     <!-- trigger untuk menutup modal -->
     <span class="btn-close" onclick="closeModal()" title="Close">
-      <i class="fa fa-close"></i></span>
+      Cancelar
+    </span>
 
     <!-- isi modal -->
     <div class="modal-content">
       <p>Cursos de Pós-Graduação</p>
       <form action="#" class="hulled-search-form-courses">
-        <input class="search-input" id="coursesearch" type="text" placeholder="Ex: Engenharia de Segurança do Trabalho"><button><i class="fa fa-search search-button"></i></button>
+        <div class="hulled-content-form-search">
+          <input class="search-input" id="coursesearch" type="text" placeholder="Ex: Engenharia de Segurança do Trabalho"><button><i class="fa fa-search search-button"></i></button>
+        </div>
+        <button class='hulled-course-not-faund'>Entrar em contato</button>
       </form>
 
 
@@ -206,7 +215,6 @@
                 //print_r($data->areas->data);
                 foreach ($data->areas->data as $key => $value) { ?>
                   <div role="link" tabindex="0" id="pesqui" data-index="3" data-area="<?php echo $value->areaAlias ?>" class="_1jbb9y7 list-courses-per-area">
-                  
                     <div class="_jro6t0">
                       <div class="_1i6wphy"> <img class="_w6ax09" alt="" src="<?php echo $value->miniature ?>"></div>
                       <div class="_1825a1k">
@@ -245,6 +253,11 @@
   <!-- trigger untuk menampilkan modal -->
   <button class="trigger" onclick="openSearch()">
     <i class="fa fa-search"></i> <?php echo $data->foo; ?></button>
+
+
+
+
+    
 </body>
 
 </html>
